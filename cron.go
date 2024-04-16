@@ -269,3 +269,7 @@ func (p *JobPool) Stop() {
 
 	p.wg.Wait()
 }
+
+func (p *JobPool) SetCustomPersistence(persistence Persistence) {
+	p.customPersistence = persistence
+}
