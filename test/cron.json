@@ -1,0 +1,1 @@
+[{"key":"test","name":"print seconds","description":"print seconds","active":true,"functionName":"github.com/ijkzen/gcron/test.TestStop.getTestJob.func2","scheduleExpression":"@every 1s","previousTime":"0001-01-01T00:00:00Z","nextTime":"2024-04-16T22:56:24+08:00","running":false,"modifiedTime":"2024-04-16T22:56:23.056302+08:00"}]
