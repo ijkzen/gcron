@@ -171,8 +171,13 @@ func (p *JobPool) update(job *Job) {
 	for _, j := range p.jobs {
 		if j.Key == job.Key {
 			j.Merge(job)
-			j.Schedule, _ = p.scheduleParser.Parse(j.ScheduleExpression)
-			j.NextTime = job.Schedule.Next(p.now())
+			var err error
+			j.Schedule, err = p.scheduleParser.Parse(j.ScheduleExpression)
+			if err != nil {
+				fmt.Printf("error parsing schedule: %v\n", err)
+				return
+			}
+			j.NextTime = j.Schedule.Next(p.now())
 			j.ModifiedTime = time.Now().In(p.location)
 		}
 	}
