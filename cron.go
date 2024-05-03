@@ -172,6 +172,7 @@ func (p *JobPool) update(job *Job) {
 		if j.Key == job.Key {
 			j.Merge(job)
 			j.Schedule, _ = p.scheduleParser.Parse(j.ScheduleExpression)
+			j.NextTime = job.Schedule.Next(p.now())
 			j.ModifiedTime = time.Now().In(p.location)
 		}
 	}
