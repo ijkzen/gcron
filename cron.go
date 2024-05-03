@@ -270,6 +270,10 @@ func (p *JobPool) Stop() {
 	p.wg.Wait()
 }
 
+func (p *JobPool) GetJobList() []*Job {
+	return p.jobs
+}
+
 func (p *JobPool) SetCustomPersistence(persistence Persistence) {
 	p.customPersistence = persistence
 }
